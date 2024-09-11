@@ -1,0 +1,47 @@
+﻿@model Contract
+
+<h1 class="client-details__title">Contract Details</h1>
+
+<section class="client-details__info">
+    <h2 class="client-details__subtitle">Informações do Contrato</h2>
+    <div class="client-details__field">
+        <strong class="client-details__label">ID</strong>
+        <span class="client-details__value">@Model.Id</span>
+    </div>
+    <div class="client-details__field">
+        <strong class="client-details__label">Estado</strong>
+        <span class="client-details__value">@Model.ContractState.ToString()</span>
+    </div>
+</section>
+
+<section class="client-details__properties">
+    <h2 class="client-details__subtitle">Propriedade Associada</h2>
+    <div class="client-details__field">
+        <strong class="client-details__label">ID</strong>
+        <span class="client-details__value">@Model.Property.Id</span>
+    </div>
+    <div class="client-details__field">
+        <strong class="client-details__label">Address</strong>
+        <span class="client-details__value">@Model.Property.Address</span>
+    </div>
+</section>
+
+<section class="client-details__properties">
+    <h2 class="client-details__subtitle">Cliente Associado</h2>
+    <div class="client-details__field">
+        <strong class="client-details__label">ID</strong>
+        <span class="client-details__value">@Model.Client.Id</span>
+    </div>
+    <div class="client-details__field">
+        <strong class="client-details__label">Nome Completo</strong>
+        <span class="client-details__value">@Model.Client.FullName</span>
+    </div
+     <div class="client-details__field">
+        <strong class="client-details__label">Email</strong>
+        <span class="client-details__value">@Model.Client.Email</span>
+    </div>
+</section>
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary client-details__back-button">Voltar para a pagina principal</a>
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-edit">Editar</a>
+<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-delete">Deletar</a>

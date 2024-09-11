@@ -1,0 +1,29 @@
+﻿@model Client
+
+@{
+    ViewData["Title"] = "Edit Client";
+}
+
+<h2>Delete Client</h2>
+
+<form asp-action="Delete" method="post">
+    <section class="client-details__info">
+        <h2 class="client-details__subtitle">Informações do Cliente</h2>
+        <div class="client-details__field">
+            <strong class="client-details__label">Id:</strong>
+            <span class="client-details__value">@Model.Id</span>
+        </div>
+        <div class="client-details__field">
+            <strong class="client-details__label">Nome Completo:</strong>
+            <span class="client-details__value">@Model.FullName</span>
+        </div>
+        <div class="client-details__field">
+            <strong class="client-details__label">Email:</strong>
+            <span class="client-details__value">@Model.Email</span>
+        </div>
+    </section>
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-delte" />
+        <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-edit">Cancelar</a>
+    </div>
+</form>

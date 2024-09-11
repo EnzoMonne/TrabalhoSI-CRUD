@@ -1,0 +1,86 @@
+﻿@model HomeViewModel
+
+<!-- Client table -->
+<table class="table table--clients">
+    <caption class="table__caption">
+        Clientes
+        <a class="table__link" href="/clients/create">Cadastrar</a>
+    </caption>
+    <thead class="table__header">
+        <tr class="table__row">
+            <th class="table__header-cell">Id</th>
+            <th class="table__header-cell">Nome Completo</th>
+            <th class="table__header-cell">Email</th>
+            <th class="table__header-cell">Editar</th>
+        </tr>
+    </thead>
+    <tbody class="table__body">
+        @foreach (var client in Model.Clients)
+        {
+            <tr class="table__row">
+                <td class="table__cell">@client.Id</td>
+                <td class="table__cell">@client.FullName</td>
+                <td class="table__cell">@client.Email</td>
+                <td class="table__cell">
+                    <a class="table__link" href="/clients/details/@client.Id">Detalhes</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Properties table -->
+<table class="table table--properties">
+    <caption class="table__caption">
+        Propriedades
+        <a class="table__link" href="/properties/create">Adicionar</a>
+    </caption>
+    <thead class="table__header">
+        <tr class="table__row">
+            <th class="table__header-cell">Id</th>
+            <th class="table__header-cell">Endereço</th>
+            <th class="table__header-cell">Preço</th>
+            <th class="table__header-cell">Editar</th>
+        </tr>
+    </thead>
+    <tbody class="table__body">
+        @foreach (var property in Model.Properties)
+        {
+            <tr class="table__row">
+                <td class="table__cell">@property.Id</td>
+                <td class="table__cell">@property.Address</td>
+                <td class="table__cell">@property.Price</td>
+                <td class="table__cell"><a class="table__link" href="/properties/details/@property.Id">Detalhes</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Table of Contracts -->
+<table class="table table--contracts">
+    <caption class="table__caption">
+        Contratos
+        <span class="table__span">(Para adicionar um contrato selecione um cliente (detalhes) e vincule uma propriedade)</span>
+    </caption>
+    <thead class="table__header">
+        <tr class="table__row">
+            <th class="table__header-cell">Id</th>
+            <th class="table__header-cell">Cliente</th>
+            <th class="table__header-cell">Propriedade</th>
+            <th class="table__header-cell">Data do Contrato</th>
+            <th class="table__header-cell">Editar</th>
+        </tr>
+    </thead>
+    <tbody class="table__body">
+        @foreach (var contract in Model.Contracts)
+        {
+            <tr class="table__row">
+                <td class="table__cell">@contract.Id</td>
+                <td class="table__cell">@contract.Client.FullName</td>
+                <td class="table__cell">@contract.Property.Address</td>
+                <td class="table__cell">@contract.ContractDate</td>
+                <td class="table__cell"><a class="table__link" href="/contracts/details/@contract.Id">Detalhes</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

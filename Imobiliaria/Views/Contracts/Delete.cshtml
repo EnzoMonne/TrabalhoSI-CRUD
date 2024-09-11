@@ -1,0 +1,54 @@
+﻿<form asp-action="Delete" method="post">
+    <!-- Informações do Contrato -->
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <input type="hidden" name="PropertyId" value="@Model.Property.Id" />
+    <input type="hidden" name="ClientId" value="@Model.Client.Id" />
+
+    <section class="client-details__info">
+        <h2 class="client-details__subtitle">Informações do Contrato</h2>
+        <div class="client-details__field">
+            <strong class="client-details__label">ID</strong>
+            <span class="client-details__value">@Model.Id</span>
+        </div>
+        <div class="client-details__field">
+            <strong class="client-details__label">Estado</strong>
+            <span class="client-details__value">@Model.ContractState.ToString()</span>
+        </div>
+    </section>
+
+    <!-- Propriedade Associada -->
+    <section class="client-details__properties">
+        <h2 class="client-details__subtitle">Propriedade Associada</h2>
+        <div class="client-details__field">
+            <strong class="client-details__label">ID</strong>
+            <span class="client-details__value">@Model.Property.Id</span>
+        </div>
+        <div class="client-details__field">
+            <strong class="client-details__label">Endereço</strong>
+            <span class="client-details__value">@Model.Property.Address</span>
+        </div>
+    </section>
+
+    <!-- Cliente Associado -->
+    <section class="client-details__properties">
+        <h2 class="client-details__subtitle">Cliente Associado</h2>
+        <div class="client-details__field">
+            <strong class="client-details__label">ID</strong>
+            <span class="client-details__value">@Model.Client.Id</span>
+        </div>
+        <div class="client-details__field">
+            <strong class="client-details__label">Nome Completo</strong>
+            <span class="client-details__value">@Model.Client.FullName</span>
+        </div>
+        <div class="client-details__field">
+            <strong class="client-details__label">Email</strong>
+            <span class="client-details__value">@Model.Client.Email</span>
+        </div>
+    </section>
+
+    <!-- Botões -->
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-delete" />
+        <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-edit">Cancelar</a>
+    </div>
+</form>

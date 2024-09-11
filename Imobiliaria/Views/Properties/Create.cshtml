@@ -1,0 +1,21 @@
+﻿@model Property
+
+@{
+    ViewData["Title"] = "Create Property";
+}
+
+<h2>Add Property</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

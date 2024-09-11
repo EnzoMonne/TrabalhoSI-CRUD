@@ -1,0 +1,233 @@
+﻿/* Resets and general configs */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Header */
+.header {
+    font-size: 1.6rem;
+    background-color: gray;
+    width: 100%;
+    padding: 1rem;
+}
+
+.header__link {
+    font-weight: 300;
+    text-decoration: none;
+    color: white;
+}
+
+    .header__link:hover {
+        text-decoration: underline;
+        color: lightgrey;
+    }
+
+/* Main Content */
+.main {
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+
+/* Table */
+table {
+    width: 100%;
+    max-width: 90rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+caption {
+    font-size: 3.5rem;
+    text-align: start;
+    margin: .5rem;
+}
+
+.table__span {
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.table__link {
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+.table__header {
+    color: white;
+}
+
+/* Specific Styles for Each Table */
+.table--clients .table__link {
+    color: #04AA6D;
+}
+
+.table--clients .table__header {
+    background-color: #04AA6D;
+}
+
+.table--properties .table__link {
+    color: mediumpurple;
+}
+
+.table--properties .table__header {
+    background-color: mediumpurple;
+}
+
+.table--contracts .table__link {
+    color: darkorange;
+}
+
+.table--contracts .table__header {
+    background-color: darkorange;
+}
+
+/* Cell and Row Styles */
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+
+    td a {
+        text-decoration: none;
+        color: #04AA6D;
+        font-size: 1.5rem;
+    }
+
+caption a:hover {
+    color: darkslategrey;
+    text-decoration: underline;
+}
+
+td a:hover {
+    color: darkslategrey;
+    text-decoration: underline;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Specific Styles for Customer Details */
+.client-details__title {
+    font-size: 2.5rem;
+}
+
+.client-details__info, .client-details__properties {
+    margin: 2rem 0;
+}
+
+.client-details__subtitle {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.client-details__field {
+    margin-bottom: 0.5rem;
+}
+
+.client-details__label {
+    font-weight: bold;
+}
+
+.client-details__value {
+    margin-left: 0.5rem;
+}
+
+.client-details__no-properties {
+    color: #666;
+}
+
+/* Form Styles */
+.form-edit {
+    max-width: 50rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.control-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.text-danger {
+    color: red;
+    font-size: 1.4rem;
+}
+
+/* Base Button Style */
+.btn {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Back Button */
+.btn-primary.client-details__back-button {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.btn-primary.client-details__back-button:hover {
+    background-color: #037d54;
+}
+
+/* Edit Button */
+.btn-edit {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #1a5dbb;
+}
+
+/* Delete Button */
+.btn-delete {
+    background-color: crimson;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #9f1b31;
+}
+
+/* Link Button */
+.btn-link-property {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+/* Form Button Group */
+.form-group .btn {
+    margin-right: 1rem;
+}

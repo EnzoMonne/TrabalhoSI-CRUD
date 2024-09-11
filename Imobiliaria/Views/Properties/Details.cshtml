@@ -1,0 +1,76 @@
+﻿@model PropertyDetailsViewModel
+
+<h1 class="client-details__title">Informaçoes da propriedade</h1>
+
+<section class="client-details__info">
+    <div class="client-details__field">
+        <strong class="client-details__label">ID da Propriedade</strong>
+        <span class="client-details__value">@Model.Property.Id</span>
+    </div>
+    <div class="client-details__field">
+        <strong class="client-details__label">Endereço</strong>
+        <span class="client-details__value">@Model.Property.Address</span>
+    </div>
+    <div class="client-details__field">
+        <strong class="client-details__label">Valor da Propriedade</strong>
+        <span class="client-details__value">@Model.Property.Price</span>
+    </div>
+</section>
+
+<section>
+    @if (Model.Property.ClientId != 0 && Model.Property.Client != null) {
+        <section class="client-details__info">
+            <h2 class="client-details__subtitle">Informações do Cliente Associado</h2>
+            <div class="client-details__field">
+                <strong class="client-details__label">ID do Cliente:</strong>
+                <span class="client-details__value">@Model.Property.ClientId</span>
+            </div>
+            <div class="client-details__field">
+                <strong class="client-details__label">Nome Completo:</strong>
+                <span class="client-details__value">@Model.Property.Client.FullName</span>
+            </div>
+            <div class="client-details__field">
+                <strong class="client-details__label">Email:</strong>
+                <span class="client-details__value">@Model.Property.Client.Email</span>
+            </div>
+        </section>
+    } else {
+         <p>Não há Clientes associados a esta Propridade.</p>
+    }
+</section>
+
+<section>
+    <h2>Contratos Associados</h2>
+    @if (Model.Contracts != null && Model.Contracts.Any(c => c.PropertyId == Model.Property.Id)) {
+        <table class="table table--contracts">
+            <caption class="table__caption">Contratos</caption>
+            <thead class="table__header">
+                <tr class="table__row">
+                    <th class="table__header-cell">Id</th>
+                    <th class="table__header-cell">Cliente</th>
+                    <th class="table__header-cell">Propriedade</th>
+                    <th class="table__header-cell">Data do Contrato</th>
+                    <th class="table__header-cell">Estado</th>
+                </tr>
+            </thead>
+            <tbody class="table__body">
+                @foreach (var contract in Model.Contracts.Where(c => c.PropertyId == Model.Property.Id)) {
+                    <tr class="table__row">
+                        <td class="table__cell">@contract.Id</td>
+                        <td class="table__cell">@contract.Client.FullName</td>
+                        <td class="table__cell">@contract.Property.Address</td>
+                        <td class="table__cell">@contract.ContractDate.ToShortDateString()</td>
+                        <td class="table__cell">@contract.ContractState</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }else 
+    {
+        <p class="client-details__no-properties">Não há clientes associadas a esta propriedade.</p>
+    }
+</section>
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary client-details__back-button">Voltar para a pagina principal</a>
+<a asp-action="Edit" asp-route-id="@Model.Property.Id" class="btn btn-edit">Editar</a>
+<a asp-action="Delete" asp-route-id="@Model.Property.Id" class="btn btn-delete">Deletar</a>

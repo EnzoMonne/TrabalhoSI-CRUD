@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Property>
+
+<table class="table table--properties">
+    <caption class="table__caption">
+        Propriedades Disponíveis
+    </caption>
+    <thead class="table__header">
+        <tr class="table__row">
+            <th class="table__header-cell">Id</th>
+            <th class="table__header-cell">Endereço</th>
+            <th class="table__header-cell">Preço</th>
+            <th class="table__header-cell">Adicionar</th>
+        </tr>
+    </thead>
+    <tbody class="table__body">
+        @{
+            IEnumerable<Property> list = Model.Where(p => p.Client == null && p.ClientId == 0);
+
+            if (list.Any())
+            {
+                foreach (Property property in list)
+                {
+                    <tr class="table__row">
+                        <td class="table__cell">@property.Id</td>
+                        <td class="table__cell">@property.Address</td>
+                        <td class="table__cell">@property.Price</td>
+                        <td class="table__cell">
+                            <form asp-action="LinkProperty" method="post">
+                                <input type="hidden" name="clientId" value="@ViewData["ClientId"]" />
+                                <input type="hidden" name="propertyId" value="@property.Id" />
+                                <button type="submit" class="table__link">Adicionar</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">Não há propriedades disponíveis no momento</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,0 +1,91 @@
+﻿@model ClientDetailsViewModel
+
+<h1 class="client-details__title">@Model.Client.FullName</h1>
+
+<section class="client-details__info">
+    <h2 class="client-details__subtitle">Informações do Cliente</h2>
+    <div class="client-details__field">
+        <strong class="client-details__label">Id:</strong>
+        <span class="client-details__value">@Model.Client.Id</span>
+    </div>
+    <div class="client-details__field">
+        <strong class="client-details__label">Nome Completo:</strong>
+        <span class="client-details__value">@Model.Client.FullName</span>
+    </div>
+    <div class="client-details__field">
+        <strong class="client-details__label">Email:</strong>
+        <span class="client-details__value">@Model.Client.Email</span>
+    </div>
+</section>
+
+<section class="client-details__properties">
+    <h2 class="client-details__subtitle">Propriedades Associadas</h2>
+    @if (Model.Client.Properties.Any())
+    {
+        <table class="table table--properties">
+            <thead class="table__header">
+                <tr class="table__row">
+                    <th class="table__cell">Id</th>
+                    <th class="table__cell">Endereço</th>
+                    <th class="table__cell">Preço</th>
+                </tr>
+            </thead>
+            <tbody class="table__body">
+                @foreach (var property in Model.Client.Properties)
+                {
+                    <tr class="table__row">
+                        <td class="table__cell">@property.Id</td>
+                        <td class="table__cell">@property.Address</td>
+                        <td class="table__cell">@property.Price</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="client-details__no-properties">Não há propriedades associadas a este cliente.</p>
+    }
+</section>
+
+<section class="client-details__contracts">
+    <h2 class="client-details__subtitle">Contratos Associados</h2>
+    @if (Model.Contracts != null && Model.Contracts.Any(c => c.ClientId == Model.Client.Id))
+    {
+        <table class="table table--contracts">
+            <caption class="table__caption">
+                Contratos
+            </caption>
+            <thead class="table__header">
+                <tr class="table__row">
+                    <th class="table__header-cell">Id</th>
+                    <th class="table__header-cell">Cliente</th>
+                    <th class="table__header-cell">Propriedade</th>
+                    <th class="table__header-cell">Data do Contrato</th>
+                    <th class="table__header-cell">Estado</th>
+                </tr>
+            </thead>
+            <tbody class="table__body">
+                @foreach (var contract in Model.Contracts.Where(c => c.ClientId == Model.Client.Id))
+                {
+                    <tr class="table__row">
+                        <td class="table__cell">@contract.Id</td>
+                        <td class="table__cell">@contract.Client.FullName</td>
+                        <td class="table__cell">@contract.Property.Address</td>
+                        <td class="table__cell">@contract.ContractDate.ToShortDateString()</td>
+                        <td class="table__cell">@contract.ContractState</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="client-details__no-contracts">Não há contratos associados a este cliente.</p>
+    }
+</section>
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary client-details__back-button">Voltar para a pagina principal</a>
+<a asp-action="LinkProperty" asp-route-id="@Model.Client.Id" class="btn btn-link-property">Vincular Nova Propriedade</a>
+<a asp-action="Edit" asp-route-id="@Model.Client.Id" class="btn btn-edit">Editar</a>
+<a asp-action="Delete" asp-route-id="@Model.Client.Id" class="btn btn-delete">Deletar</a>
