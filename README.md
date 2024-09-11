@@ -39,74 +39,74 @@ Adotamos a arquitetura **MVC (Model-View-Controller)**:
      - `Client`: Id, FullName, Email  
      - `Property`: Id, Address, Price  
      - `Contract`: Id, ClientId, PropertyId, ContractDate
-![image](https://github.com/user-attachments/assets/aa801597-022f-4f43-b990-261c6289c59a)
+![1](https://github.com/user-attachments/assets/2afd9b47-0203-499a-be06-36666a66a76d)
 
 ### Client
 1. **Create**  
    - Entrada: FirstName, LastName, Email  
    - Saída: Visualização com o novo cliente na lista  
-![image](https://github.com/user-attachments/assets/1f64a246-5feb-46b2-8a0c-603603487f72)
+![2](https://github.com/user-attachments/assets/44960eed-0809-46a5-91e6-18635f5141d6)
 
 2. **Delete**  
    - Entrada: ID do cliente  
    - Saída: Visualização sem o cliente na lista (retirada de um cliente da lista e o fechamento daquele contrato relacinado, caso tenha um.)
-![image](https://github.com/user-attachments/assets/16545309-83db-424d-ac39-8d149a996f31)
+![3](https://github.com/user-attachments/assets/bdf332b5-e81d-41ad-a962-372c6c9a732f)
 
 3. **Edit**  
    - Entrada: ID do cliente  
    - Saída: Visualização dos detalhes do cliente atualizados
-![image](https://github.com/user-attachments/assets/ecf6e1a9-12b3-4e77-a327-ca391fcc104d)
+![4](https://github.com/user-attachments/assets/808bded9-6fe4-4708-8515-494fe9f506a1)
 
 4. **Details**  
    - Entrada: ID do cliente  
    - Saída: Visualização completa dos dados do cliente, propriedades e contratos  
-![image](https://github.com/user-attachments/assets/9c19918e-8305-43e9-8fed-9e2818ba8aa1)
+![5](https://github.com/user-attachments/assets/31a93296-23e0-4ac4-8a76-cf7490be63c7)
 
 5. **LinkProperty**  
    - Entrada: ID do cliente, Lista das Propriedades  
    - Saída: Visualização dos detalhes do cliente com nova propriedade vinculada (e criacao de um contrato)
-![image](https://github.com/user-attachments/assets/d50d1ca4-a0ff-41fa-99e3-faaae2beec63)
+![6](https://github.com/user-attachments/assets/035a3b7a-8440-4b97-b9b6-49f48df6f6d2)
 
 ### Property
 1. **Create**  
    - Entrada: Address, Price  
    - Saída:Visualização com o nova propriedade na lista
-![image](https://github.com/user-attachments/assets/5985c417-430e-4410-a5e2-3a7337c383bc)
+![7](https://github.com/user-attachments/assets/86f1e235-ef88-41d9-9ec2-9a142ce18011)
 
 2. **Delete**  
    - Entrada: ID da propriedade  
    - Saída: Visualização sem a propriedade na lista (fechamento de seu contrato relacinado, caso tenha um.)
-![image](https://github.com/user-attachments/assets/900ee2cd-bc59-45aa-8a34-2767b1c2c1e0)
+![8](https://github.com/user-attachments/assets/465205ba-3103-41db-b94a-310e5fbd9109)
 
 3. **Edit**  
    - Entrada: ID da propriedade  
    - Saída: Visualização dos detalhes da propriedade atualizados
-![image](https://github.com/user-attachments/assets/331c0f0e-d91f-4252-b3be-8b5026aaeb77)
+![9](https://github.com/user-attachments/assets/4ea90779-86ec-439f-9d08-db714ea981c6)
 
 4. **Details**  
    - Entrada: ID da propriedade  
    - Saída: Visualização completa dos dados da propriedade e contratos relacionados  
-![image](https://github.com/user-attachments/assets/69055a31-d3ac-416e-85a3-284b56d40a76)
+![10](https://github.com/user-attachments/assets/4cb40f7e-ca98-4196-ab2d-bafc221b1e52)
 
 ### Contract
 1. **Create**  
    - Um contrato pode ser criado a partir dos detalhes do cliente usando o Link Property (Vincular propriedade)
-![image](https://github.com/user-attachments/assets/6c8f3658-cb49-46a4-a170-7c886bfa2cee)
+![11](https://github.com/user-attachments/assets/b15d8bed-17a8-4586-8bf6-3b878c007721)
 
 2. **Delete**  
    - Entrada: ID do contrato  
    - Saída: Visualização sem o contrato na lista (Desvincularização da propriedade e o cliente de mesmo contrato)
-![image](https://github.com/user-attachments/assets/6dc25535-489f-47cb-95b3-714033654a17)
+![12](https://github.com/user-attachments/assets/3ffc4cdc-6638-4d3b-af42-aabc74ac6edb)
 
 3. **Edit**  
    - Entrada: ID do contrato  
    - Saída: Visualização dos detalhes do contrato atualizados
-![image](https://github.com/user-attachments/assets/22c91101-04ab-4af1-94dc-1649ae40bcad)
+![13](https://github.com/user-attachments/assets/b5b77bb5-f47b-4d1a-ac6b-6a6288ffd9ab)
 
 4. **Details**  
    - Entrada: --  
    - Saída: Visualização completa dos dados do contrato  
-![image](https://github.com/user-attachments/assets/0977d7c9-5215-4587-8c45-dc84d427d5c0)
+![14](https://github.com/user-attachments/assets/f7b3b318-3cd2-4080-9a42-45166977246c)
 
 ---
 
